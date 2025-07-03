@@ -25,9 +25,10 @@ export default {
           500: '#6B7280',
           600: '#4B5563',
           700: '#374151',
-          800: '#1F2937',
+800: '#1F2937',
           900: '#111827',
-        }
+        },
+        border: '#E5E7EB', // Default border color for border-border utility
       },
       fontFamily: {
         'display': ['Plus Jakarta Sans', 'sans-serif'],

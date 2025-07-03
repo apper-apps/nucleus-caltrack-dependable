@@ -5,8 +5,8 @@
 @import 'react-toastify/dist/ReactToastify.css';
 
 @layer base {
-  * {
-    @apply border-border;
+* {
+    @apply border-gray-200;
   }
   
   body {
