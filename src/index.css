@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'react-toastify/dist/ReactToastify.css';
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    @apply bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .gradient-success {
+    @apply bg-gradient-to-r from-success to-emerald-400;
+  }
+  
+  .gradient-card {
+    @apply bg-gradient-to-br from-white via-surface to-gray-50;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-sm;
+  }
+  
+  .premium-card {
+    @apply bg-white rounded-xl shadow-premium border border-gray-100/50;
+  }
+  
+  .floating-button {
+    @apply fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full gradient-success shadow-float hover:shadow-glow transition-all duration-300 hover:scale-110;
+  }
+  
+  .progress-ring {
+    @apply relative overflow-hidden rounded-full;
+  }
+  
+  .progress-ring::before {
+    @apply absolute inset-0 rounded-full animate-pulse-ring;
+    content: '';
+    background: conic-gradient(from 0deg, transparent, theme(colors.primary), transparent);
+  }
+}
+
+/* Toast Overrides */
+.Toastify__toast-container {
+  top: 1rem !important;
+  right: 1rem !important;
+  width: auto !important;
+  max-width: 400px !important;
+}
+
+.Toastify__toast {
+  border-radius: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  padding: 12px 16px !important;
+  min-height: auto !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #10B981, #059669) !important;
+}
+
+.Toastify__toast--error {
+  background: linear-gradient(135deg, #EF4444, #DC2626) !important;
+}
+
+.Toastify__toast--info {
+  background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+}
+
+.Toastify__toast--warning {
+  background: linear-gradient(135deg, #F59E0B, #D97706) !important;
+}
+
+.Toastify__progress-bar {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4F46E5, #7C3AED);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3730A3, #5B21B6);
+}
