@@ -5,9 +5,9 @@ import Card from '@/components/atoms/Card'
 import Button from '@/components/atoms/Button'
 import FormField from '@/components/molecules/FormField'
 import StatCard from '@/components/molecules/StatCard'
+import ThemeToggle from '@/components/molecules/ThemeToggle'
 import ApperIcon from '@/components/ApperIcon'
 import { profileService } from '@/services/api/profileService'
-
 const Profile = () => {
   const [profile, setProfile] = useState({
     age: '',
@@ -131,15 +131,15 @@ const Profile = () => {
     { value: 'weight_gain', label: 'Weight Gain' }
   ]
   
-  return (
+return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="space-y-6"
     >
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Profile & Settings</h1>
-        <p className="text-gray-600">Manage your personal information and health goals</p>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">Profile & Settings</h1>
+        <p className="text-gray-600 dark:text-gray-300">Manage your personal information and health goals</p>
       </div>
       
       {/* Calculated Metrics */}
@@ -301,23 +301,69 @@ const Profile = () => {
           </Card>
         </motion.div>
       </div>
-      
-      {/* Save Button */}
+{/* Settings Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="flex justify-center"
+        className="grid grid-cols-1 lg:grid-cols-3 gap-6"
       >
-        <Button
-          onClick={handleSave}
-          loading={loading}
-          size="lg"
-          icon="Save"
-          className="px-8"
+        {/* Theme Settings */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
         >
-          Save Profile
-        </Button>
+          <Card>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Appearance</h3>
+            <ThemeToggle />
+          </Card>
+        </motion.div>
+
+        {/* Additional Settings Placeholder */}
+        <motion.div
+          initial={{ opacity: 0, x: 0 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <Card>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Notifications</h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600 dark:text-gray-300">Goal reminders</span>
+                <div className="w-10 h-6 bg-primary rounded-full relative">
+                  <div className="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-600 dark:text-gray-300">Progress updates</span>
+                <div className="w-10 h-6 bg-gray-200 dark:bg-gray-600 rounded-full relative">
+                  <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </motion.div>
+
+        {/* Save Button */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex items-end"
+        >
+          <Card className="w-full flex items-center justify-center">
+            <Button
+              onClick={handleSave}
+              loading={loading}
+              size="lg"
+              icon="Save"
+              className="w-full"
+            >
+              Save Profile
+            </Button>
+          </Card>
+        </motion.div>
       </motion.div>
     </motion.div>
   )
