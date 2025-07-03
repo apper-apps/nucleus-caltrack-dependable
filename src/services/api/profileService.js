@@ -10,7 +10,7 @@ export const profileService = {
       return JSON.parse(stored)
     }
     
-    // Return default profile
+// Return default profile
     return {
       age: 25,
       gender: 'male',
@@ -19,7 +19,15 @@ export const profileService = {
       targetWeight: 65,
       activityLevel: 'moderately_active',
       goal: 'weight_loss',
-      dailyCalorieGoal: 1800
+      dailyCalorieGoal: 1800,
+      notifications: {
+        goalReminders: true,
+        progressUpdates: false,
+        dailyReminders: true,
+        weeklyReports: true,
+        achievementNotifications: true,
+        mealReminders: false
+      }
     }
   },
   
